@@ -1,16 +1,34 @@
 package bluehberger.cipher;
 
+/**
+ * Die Klasse MonoAlphabeticCipher setzt das Geheimalphabet immer auf das
+ * Ausgangsalphabet (abcdefghijklmnopqrstuvwxyzäöüß) wodurch bei dieser Klasse
+ * keine Verschlüsselung stattfindet. Trotzdem können die beiden Methoden
+ * encrypt und decrypt mit jedem Geheimalphabet arbeiten, da ja eine Subklassen
+ * diese Methoden nicht implementieren, das Geheimalphabet je nach Klasse aber
+ * anders gesetzt wird.
+ * 
+ * @author Gerald Blühberger
+ */
 public class MonoAlphabeticCipher implements Cipher
 {
 
 	private static final String alphabet = "abcdefghijklmnopqrstuvwxyzäöüß";
 	private String secretAlphabet;
 
+	/**
+	 * Erzeugt ein MonoAlphabeticCipher Objekt
+	 */
 	public MonoAlphabeticCipher()
 	{
 		secretAlphabet = alphabet;
 	}
 
+	/**
+	 * setzt das secetAlphabet
+	 * 
+	 * @param secretAlphabet geheimes Alphabet
+	 */
 	protected void setSecretAlphabet(String secretAlphabet)
 	{
 		secretAlphabet = secretAlphabet.toLowerCase();
